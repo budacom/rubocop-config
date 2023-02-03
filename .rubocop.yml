@@ -1113,7 +1113,7 @@ Rails/UniqBeforePluck:
   Enabled: true
   VersionAdded: '0.40'
   VersionChanged: '2.13'
-  EnforcedStyle: aggresive
+  EnforcedStyle: aggressive
   SupportedStyles:
     - conservative
     - aggressive
