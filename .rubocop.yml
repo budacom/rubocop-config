@@ -900,13 +900,11 @@ Rails/DuplicateAssociation:
   Enabled: true
   Severity: warning
   VersionAdded: '2.14'
-  VersionChanged: '<<next>>'
 Rails/DuplicateScope:
   Description: 'Multiple scopes share this same where clause.'
   Enabled: true
   Severity: warning
   VersionAdded: '2.14'
-  VersionChanged: '<<next>>'
 Rails/DurationArithmetic:
   Description: 'Do not use duration as arithmetic operand with `Time.current`.'
   StyleGuide: 'https://rails.rubystyle.guide#duration-arithmetic'
@@ -1101,11 +1099,8 @@ Rails/TopLevelHashWithIndifferentAccess:
   Enabled: true
   Severity: warning
   VersionAdded: '2.16'
-  VersionChanged: '<<next>>'
 Rails/TransactionExitStatement:
   Description: 'Avoid the usage of `return`, `break` and `throw` in transaction blocks.'
-  Reference:
-    - https://github.com/rails/rails/commit/15aa4200e083
   Enabled: true
   VersionAdded: '2.14'
 Rails/UniqBeforePluck:
@@ -1516,9 +1511,7 @@ RSpec/MultipleMemoizedHelpers:
 RSpec/BeEq:
   Description: Check for expectations where `be(...)` can replace `eq(...)`.
   Enabled: true
-  Safe: false
   VersionAdded: 2.9.0
-  VersionChanged: '2.16'
   Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/BeEq
 RSpec/BeNil:
   Description: Ensures a consistent style is used when matching `nil`.
