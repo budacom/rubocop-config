@@ -1607,11 +1607,6 @@ RSpec/FactoryBot/SyntaxMethods:
   SafeAutoCorrect: false
   VersionAdded: '2.7'
   Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/FactoryBot/SyntaxMethods
-RSpec/Rails/AvoidSetupHook:
-  Description: Checks that tests use RSpec `before` hook over Rails `setup` method.
-  Enabled: true
-  VersionAdded: '2.4'
-  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/Rails/AvoidSetupHook
 RSpec/Rails/HaveHttpStatus:
   Description: Checks that tests use `have_http_status` instead of equality matchers.
   Enabled: true
