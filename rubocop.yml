@@ -1,0 +1,295 @@
+inherit_from:
+  - rubocop-base.yml
+
+Gemspec/DependencyVersion:
+  Description: 'Requires or forbids specifying gem dependency versions.'
+  Enabled: true
+  VersionAdded: '1.29'
+  EnforcedStyle: 'required'
+  SupportedStyles:
+    - 'required'
+    - 'forbidden'
+  Include:
+    - '**/*.gemspec'
+  AllowedGems: []
+Gemspec/DeprecatedAttributeAssignment:
+  Description: Checks that deprecated attribute assignments are not set in a gemspec file.
+  Enabled: true
+  Severity: warning
+  VersionAdded: '1.30'
+  VersionChanged: '1.40'
+  Include:
+    - '**/*.gemspec'
+Gemspec/RequireMFA:
+  VersionChanged: '1.40'
+Layout/LineContinuationLeadingSpace:
+  Description: >-
+                  Use trailing spaces instead of leading spaces in strings
+                  broken over multiple lines (by a backslash).
+  Enabled: true
+  AutoCorrect: false
+  VersionAdded: '1.31'
+  VersionChanged: '1.32'
+  EnforcedStyle: trailing
+  SupportedStyles:
+    - leading
+    - trailing
+Layout/LineContinuationSpacing:
+  Description: 'Checks the spacing in front of backslash in line continuations.'
+  Enabled: true
+  AutoCorrect: true
+  SafeAutoCorrect: true
+  VersionAdded: '1.31'
+  EnforcedStyle: space
+  SupportedStyles:
+    - space
+    - no_space
+Lint/ConstantOverwrittenInRescue:
+  Description: 'Checks for overwriting an exception with an exception result by use `rescue =>`.'
+  Enabled: true
+  VersionAdded: '1.31'
+Lint/NonAtomicFileOperation:
+  Description: Checks for non-atomic file operations.
+  StyleGuide: '#atomic-file-operations'
+  Enabled: true
+  VersionAdded: '1.31'
+  SafeAutoCorrect: false
+Lint/RequireRangeParentheses:
+  Description: 'Checks that a range literal is enclosed in parentheses when the end of the range is at a line break.'
+  Enabled: true
+  VersionAdded: '1.32'
+Security/CompoundHash:
+  Description: 'When overwriting Object#hash to combine values, prefer delegating to Array#hash over writing a custom implementation.'
+  Enabled: true
+  VersionAdded: '1.28'
+Rails/ActionControllerFlashBeforeRender:
+  Description: 'Use `flash.now` instead of `flash` before `render`.'
+  StyleGuide: 'https://rails.rubystyle.guide/#flash-before-render'
+  Reference: 'https://api.rubyonrails.org/classes/ActionController/FlashBeforeRender.html'
+  Enabled: true
+  SafeAutoCorrect: false
+  VersionAdded: '2.16'
+Rails/ActionControllerTestCase:
+  SafeAutoCorrect: false
+Rails/ActiveSupportOnLoad:
+  Description: 'Use `ActiveSupport.on_load(...)` to patch Rails framework classes.'
+  Enabled: true
+  Reference:
+    - 'https://api.rubyonrails.org/classes/ActiveSupport/LazyLoadHooks.html'
+    - 'https://guides.rubyonrails.org/engines.html#available-load-hooks'
+  SafeAutoCorrect: false
+  VersionAdded: '2.16'
+Rails/DeprecatedActiveModelErrorsMethods:
+  VersionChanged: '<<next>>'
+Rails/DotSeparatedKeys:
+  Description: 'Enforces the use of dot-separated keys instead of `:scope` options in `I18n` translation methods.'
+  StyleGuide: 'https://rails.rubystyle.guide/#dot-separated-keys'
+  Enabled: true
+  VersionAdded: '2.15'
+Rails/FreezeTime:
+  Description: 'Prefer `freeze_time` over `travel_to` with an argument of the current time.'
+  StyleGuide: 'https://rails.rubystyle.guide/#freeze-time'
+  Enabled: true
+  VersionAdded: '2.16'
+  SafeAutoCorrect: false
+Rails/RootPathnameMethods:
+  Description: 'Use `Rails.root` IO methods instead of passing it to `File`.'
+  Enabled: true
+  SafeAutoCorrect: false
+  VersionAdded: '2.16'
+Rails/RootPublicPath:
+  Description: "Favor `Rails.public_path` over `Rails.root` with `'public'`."
+  Enabled: true
+  VersionAdded: '2.15'
+Rails/StripHeredoc:
+  Description: 'Enforces the use of squiggly heredoc over `strip_heredoc`.'
+  StyleGuide: 'https://rails.rubystyle.guide/#prefer-squiggly-heredoc'
+  Enabled: true
+  VersionAdded: '2.15'
+Rails/ToFormattedS:
+  Description: 'Checks for consistent uses of `to_fs` or `to_formatted_s`.'
+  StyleGuide: 'https://rails.rubystyle.guide/#prefer-to-fs'
+  Enabled: true
+  EnforcedStyle: to_fs
+  SupportedStyles:
+    - to_fs
+    - to_formatted_s
+  VersionAdded: '2.15'
+Rails/ToSWithArgument:
+  Description: 'Identifies passing any argument to `#to_s`.'
+  Enabled: true
+  Safe: false
+  VersionAdded: '2.16'
+Rails/TopLevelHashWithIndifferentAccess:
+  Description: 'Identifies top-level `HashWithIndifferentAccess`.'
+  Reference: 'https://guides.rubyonrails.org/upgrading_ruby_on_rails.html#top-level-hashwithindifferentaccess-is-soft-deprecated'
+  Enabled: true
+  Severity: warning
+  VersionAdded: '2.16'
+Rails/WhereMissing:
+  Description: 'Use `where.missing(...)` to find missing relationship records.'
+  StyleGuide: 'https://rails.rubystyle.guide/#finding-missing-relationship-records'
+  Enabled: true
+  VersionAdded: '2.16'
+Style/EmptyHeredoc:
+  Description: 'Checks for using empty heredoc to reduce redundancy.'
+  Enabled: true
+  VersionAdded: '1.32'
+Style/EnvHome:
+  Description: "Checks for consistent usage of `ENV['HOME']`."
+  Enabled: true
+  Safe: false
+  VersionAdded: '1.29'
+Style/FetchEnvVar:
+  Description: >-
+                 Suggests `ENV.fetch` for the replacement of `ENV[]`.
+  Reference:
+    - https://rubystyle.guide/#hash-fetch-defaults
+  Enabled: true
+  VersionAdded: '1.28'
+  # Environment variables to be excluded from the inspection.
+  AllowedVars: []
+Style/HashExcept:
+  Safe: false
+  VersionChanged: '1.39'
+Style/MagicCommentFormat:
+  Description: 'Use a consistent style for magic comments.'
+  Enabled: true
+  VersionAdded: '1.35'
+  EnforcedStyle: snake_case
+  SupportedStyles:
+    # `snake` will enforce the magic comment is written
+    # in snake case (words separated by underscores).
+    # Eg: froze_string_literal: true
+    - snake_case
+    # `kebab` will enforce the magic comment is written
+    # in kebab case (words separated by hyphens).
+    # Eg: froze-string-literal: true
+    - kebab_case
+  DirectiveCapitalization: lowercase
+  ValueCapitalization: ~
+  SupportedCapitalizations:
+    - lowercase
+    - uppercase
+Style/MapCompactWithConditionalBlock:
+  Description: 'Prefer `select` or `reject` over `map { ... }.compact`.'
+  Enabled: true
+  VersionAdded: '1.30'
+Style/ObjectThen:
+  Description: 'Enforces the use of consistent method names `Object#yield_self` or `Object#then`.'
+  StyleGuide: '#object-yield-self-vs-object-then'
+  Enabled: true
+  VersionAdded: '1.28'
+  # Use `Object#yield_self` or `Object#then`?
+  # Prefer `Object#yield_self` to `Object#then` (yield_self)
+  # Prefer `Object#then` to `Object#yield_self` (then)
+  EnforcedStyle: 'then'
+  SupportedStyles:
+    - then
+    - yield_self
+Style/RedundantInitialize:
+  Safe: false
+  AllowComments: true
+  VersionChanged: '1.28'
+RSpec/ExampleLength:
+  CountAsOne: ["array", "hash", "heredoc"]
+RSpec/LetSetup:
+  VersionAdded: '1.7'
+  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/LetSetup
+RSpec/MultipleMemoizedHelpers:
+  Description: Checks if example groups contain too many `let` and `subject` calls.
+  Enabled: pending
+  AllowSubject: true
+  Max: 5
+  VersionAdded: '1.43'
+  StyleGuide: https://rspec.rubystyle.guide/#let-blocks
+  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/MultipleMemoizedHelpers
+RSpec/BeEq:
+  Description: Check for expectations where `be(...)` can replace `eq(...)`.
+  Enabled: true
+  VersionAdded: 2.9.0
+  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/BeEq
+RSpec/BeNil:
+  Description: Ensures a consistent style is used when matching `nil`.
+  Enabled: true
+  EnforcedStyle: be_nil
+  SupportedStyles:
+    - be
+    - be_nil
+  VersionAdded: 2.9.0
+  VersionChanged: 2.10.0
+  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/BeNil
+RSpec/ChangeByZero:
+  Description: Prefer negated matchers over `to change.by(0)`.
+  Enabled: true
+  VersionAdded: '2.11'
+  VersionChanged: '2.14'
+  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/ChangeByZero
+RSpec/ClassCheck:
+  Description: Enforces consistent use of `be_a` or `be_kind_of`.
+  StyleGuide: "#is-a-vs-kind-of"
+  Enabled: true
+  VersionAdded: '2.13'
+  EnforcedStyle: be_a
+  SupportedStyles:
+    - be_a
+    - be_kind_of
+  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/ClassCheck
+RSpec/ExcessiveDocstringSpacing:
+  Description: Checks for excessive whitespace in example descriptions.
+  Enabled: true
+  VersionAdded: '2.5'
+  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/ExcessiveDocstringSpacing
+RSpec/IdenticalEqualityAssertion:
+  Description: Checks for equality assertions with identical expressions on both sides.
+  Enabled: true
+  VersionAdded: '2.4'
+  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/IdenticalEqualityAssertion
+RSpec/NoExpectationExample:
+  Description: Checks if an example contains any expectation.
+  Enabled: true
+  Safe: false
+  VersionAdded: '2.13'
+  VersionChanged: '2.14'
+  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/NoExpectationExample
+  AllowedPatterns:
+    - "^expect_"
+    - "^assert_"
+RSpec/SubjectDeclaration:
+  Description: Ensure that subject is defined using subject helper.
+  Enabled: true
+  VersionAdded: '2.5'
+  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/SubjectDeclaration
+RSpec/VerifiedDoubleReference:
+  Description: Checks for consistent verified double reference style.
+  Enabled: true
+  SafeAutoCorrect: false
+  EnforcedStyle: constant
+  SupportedStyles:
+    - constant
+    - string
+  VersionAdded: 2.10.0
+  VersionChanged: '2.12'
+  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/VerifiedDoubleReference
+RSpec/VerifiedDoubles:
+  VersionAdded: 1.2.1
+  VersionChanged: '1.5'
+  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/VerifiedDoubles
+RSpec/Rails/AvoidSetupHook:
+  Description: Checks that tests use RSpec `before` hook over Rails `setup` method.
+  Enabled: true
+  VersionAdded: '2.4'
+  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/Rails/AvoidSetupHook
+RSpec/FactoryBot/SyntaxMethods:
+  Description: Use shorthands from `FactoryBot::Syntax::Methods` in your specs.
+  Enabled: true
+  SafeAutoCorrect: false
+  VersionAdded: '2.7'
+  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/FactoryBot/SyntaxMethods
+RSpec/Rails/HaveHttpStatus:
+  Description: Checks that tests use `have_http_status` instead of equality matchers.
+  Enabled: true
+  SafeAutoCorrect: false
+  VersionAdded: '2.12'
+  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/Rails/HaveHttpStatus
+  
