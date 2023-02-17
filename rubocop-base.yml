@@ -7,7 +7,7 @@ AllCops:
   - "vendor/**/*"
   - "db/**/*"
   - "bin/**/*"
-  TargetRubyVersion: 3.2
+  TargetRubyVersion: 2.5
   NewCops: disable
 Rails:
   Enabled: true
@@ -26,58 +26,15 @@ Bundler/GemVersion:
     - '**/Gemfile'
     - '**/gems.rb'
   AllowedGems: []
-Gemspec/DependencyVersion:
-  Description: 'Requires or forbids specifying gem dependency versions.'
-  Enabled: true
-  VersionAdded: '1.29'
-  EnforcedStyle: 'required'
-  SupportedStyles:
-    - 'required'
-    - 'forbidden'
-  Include:
-    - '**/*.gemspec'
-  AllowedGems: []
-Gemspec/DeprecatedAttributeAssignment:
-  Description: Checks that deprecated attribute assignments are not set in a gemspec file.
-  Enabled: true
-  Severity: warning
-  VersionAdded: '1.30'
-  VersionChanged: '1.40'
-  Include:
-    - '**/*.gemspec'
 Gemspec/RequireMFA:
   Description: 'Checks that the gemspec has metadata to require Multi-Factor Authentication from RubyGems.'
   Enabled: true
   Severity: warning
   VersionAdded: '1.23'
-  VersionChanged: '1.40'
   Reference:
     - https://guides.rubygems.org/mfa-requirement-opt-in/
   Include:
     - '**/*.gemspec'
-Layout/LineContinuationLeadingSpace:
-  Description: >-
-                  Use trailing spaces instead of leading spaces in strings
-                  broken over multiple lines (by a backslash).
-  Enabled: true
-  AutoCorrect: false
-  SafeAutoCorrect: false
-  VersionAdded: '1.31'
-  VersionChanged: '1.32'
-  EnforcedStyle: trailing
-  SupportedStyles:
-    - leading
-    - trailing
-Layout/LineContinuationSpacing:
-  Description: 'Checks the spacing in front of backslash in line continuations.'
-  Enabled: true
-  AutoCorrect: true
-  SafeAutoCorrect: true
-  VersionAdded: '1.31'
-  EnforcedStyle: space
-  SupportedStyles:
-    - space
-    - no_space
 Layout/LineEndStringConcatenationIndentation:
   Description: >-
                  Checks the indentation of the next line after a line that
@@ -335,10 +292,6 @@ Lint/AmbiguousRange:
   VersionAdded: '1.19'
   SafeAutoCorrect: true
   RequireParenthesesForMethodChains: false
-Lint/ConstantOverwrittenInRescue:
-  Description: 'Checks for overwriting an exception with an exception result by use `rescue =>`.'
-  Enabled: true
-  VersionAdded: '1.31'
 Lint/DeprecatedConstants:
   Description: 'Checks for deprecated constants.'
   Enabled: true
@@ -418,12 +371,6 @@ Lint/NoReturnInBeginEndBlocks:
   Description: 'Do not `return` inside `begin..end` blocks in assignment contexts.'
   Enabled: true
   VersionAdded: '1.2'
-Lint/NonAtomicFileOperation:
-  Description: Checks for non-atomic file operations.
-  StyleGuide: '#atomic-file-operations'
-  Enabled: true
-  VersionAdded: '1.31'
-  SafeAutoCorrect: false
 Lint/NumberedParameterAssignment:
   Description: 'Checks for uses of numbered parameter assignment.'
   Enabled: true
@@ -444,10 +391,6 @@ Lint/RefinementImportMethods:
   Enabled: true
   SafeAutoCorrect: false
   VersionAdded: '1.27'
-Lint/RequireRangeParentheses:
-  Description: 'Checks that a range literal is enclosed in parentheses when the end of the range is at a line break.'
-  Enabled: true
-  VersionAdded: '1.32'
 Lint/RequireRelativeSelfPath:
   Description: 'Checks for uses a file requiring itself with `require_relative`.'
   Enabled: true
@@ -600,10 +543,6 @@ Naming/MethodParameterName:
     - to
   # Forbidden names that will register an offense
   ForbiddenNames: []
-Security/CompoundHash:
-  Description: 'When overwriting Object#hash to combine values, prefer delegating to Array#hash over writing a custom implementation.'
-  Enabled: true
-  VersionAdded: '1.28'
 Security/IoMethods:
   Description: >-
                  Checks for the first argument to `IO.read`, `IO.binread`, `IO.write`, `IO.binwrite`,
@@ -825,19 +764,11 @@ Lint/StructNewOverride:
 Rails/Delegate:
   Description: Prefer delegate method for delegations.
   Enabled: false
-Rails/ActionControllerFlashBeforeRender:
-  Description: 'Use `flash.now` instead of `flash` before `render`.'
-  StyleGuide: 'https://rails.rubystyle.guide/#flash-before-render'
-  Reference: 'https://api.rubyonrails.org/classes/ActionController/FlashBeforeRender.html'
-  Enabled: true
-  SafeAutoCorrect: false
-  VersionAdded: '2.16'
 Rails/ActionControllerTestCase:
   Description: 'Use `ActionDispatch::IntegrationTest` instead of `ActionController::TestCase`.'
   StyleGuide: 'https://rails.rubystyle.guide/#integration-testing'
   Reference: 'https://api.rubyonrails.org/classes/ActionController/TestCase.html'
   Enabled: true
-  SafeAutoCorrect: false
   VersionAdded: '2.14'
   Include:
     - '**/test/**/*.rb'
@@ -848,14 +779,6 @@ Rails/ActiveRecordCallbacksOrder:
   VersionAdded: '2.7'
   Include:
     - app/models/**/*.rb
-Rails/ActiveSupportOnLoad:
-  Description: 'Use `ActiveSupport.on_load(...)` to patch Rails framework classes.'
-  Enabled: true
-  Reference:
-    - 'https://api.rubyonrails.org/classes/ActiveSupport/LazyLoadHooks.html'
-    - 'https://guides.rubyonrails.org/engines.html#available-load-hooks'
-  SafeAutoCorrect: false
-  VersionAdded: '2.16'
 Rails/AddColumnIndex:
   Description: >-
     Rails migrations don't make use of a given `index` key, but also
@@ -889,12 +812,6 @@ Rails/DeprecatedActiveModelErrorsMethods:
   Severity: warning
   Safe: false
   VersionAdded: '2.14'
-  VersionChanged: '<<next>>'
-Rails/DotSeparatedKeys:
-  Description: 'Enforces the use of dot-separated keys instead of `:scope` options in `I18n` translation methods.'
-  StyleGuide: 'https://rails.rubystyle.guide/#dot-separated-keys'
-  Enabled: true
-  VersionAdded: '2.15'
 Rails/DuplicateAssociation:
   Description: "Don't repeat associations in a model."
   Enabled: true
@@ -927,12 +844,6 @@ Rails/FindById:
   StyleGuide: 'https://rails.rubystyle.guide/#find'
   Enabled: true
   VersionAdded: '2.7'
-Rails/FreezeTime:
-  Description: 'Prefer `freeze_time` over `travel_to` with an argument of the current time.'
-  StyleGuide: 'https://rails.rubystyle.guide/#freeze-time'
-  Enabled: true
-  VersionAdded: '2.16'
-  SafeAutoCorrect: false
 Rails/I18nLazyLookup:
   Description: 'Checks for places where I18n "lazy" lookup can be used.'
   StyleGuide: 'https://rails.rubystyle.guide/#lazy-lookup'
@@ -1039,15 +950,6 @@ Rails/RootJoinChain:
   Description: 'Use a single `#join` instead of chaining on `Rails.root` or `Rails.public_path`.'
   Enabled: true
   VersionAdded: '2.13'
-Rails/RootPathnameMethods:
-  Description: 'Use `Rails.root` IO methods instead of passing it to `File`.'
-  Enabled: true
-  SafeAutoCorrect: false
-  VersionAdded: '2.16'
-Rails/RootPublicPath:
-  Description: "Favor `Rails.public_path` over `Rails.root` with `'public'`."
-  Enabled: true
-  VersionAdded: '2.15'
 Rails/ShortI18n:
   Description: 'Use the short form of the I18n methods: `t` instead of `translate` and `l` instead of `localize`.'
   StyleGuide: 'https://rails.rubystyle.guide/#short-i18n'
@@ -1066,11 +968,6 @@ Rails/SquishedSQLHeredocs:
   # Some SQL syntax (e.g. PostgreSQL comments and functions) requires newlines
   # to be preserved in order to work, thus autocorrection is not safe.
   SafeAutoCorrect: false
-Rails/StripHeredoc:
-  Description: 'Enforces the use of squiggly heredoc over `strip_heredoc`.'
-  StyleGuide: 'https://rails.rubystyle.guide/#prefer-squiggly-heredoc'
-  Enabled: true
-  VersionAdded: '2.15'
 Rails/TimeZoneAssignment:
   Description: 'Prefer the usage of `Time.use_zone` instead of manually updating `Time.zone` value.'
   Reference: 'https://thoughtbot.com/blog/its-about-time-zones'
@@ -1079,26 +976,6 @@ Rails/TimeZoneAssignment:
   Include:
     - spec/**/*.rb
     - test/**/*.rb
-Rails/ToFormattedS:
-  Description: 'Checks for consistent uses of `to_fs` or `to_formatted_s`.'
-  StyleGuide: 'https://rails.rubystyle.guide/#prefer-to-fs'
-  Enabled: true
-  EnforcedStyle: to_fs
-  SupportedStyles:
-    - to_fs
-    - to_formatted_s
-  VersionAdded: '2.15'
-Rails/ToSWithArgument:
-  Description: 'Identifies passing any argument to `#to_s`.'
-  Enabled: true
-  Safe: false
-  VersionAdded: '2.16'
-Rails/TopLevelHashWithIndifferentAccess:
-  Description: 'Identifies top-level `HashWithIndifferentAccess`.'
-  Reference: 'https://guides.rubyonrails.org/upgrading_ruby_on_rails.html#top-level-hashwithindifferentaccess-is-soft-deprecated'
-  Enabled: true
-  Severity: warning
-  VersionAdded: '2.16'
 Rails/TransactionExitStatement:
   Description: 'Avoid the usage of `return`, `break` and `throw` in transaction blocks.'
   Enabled: true
@@ -1136,11 +1013,6 @@ Rails/WhereExists:
     - where
   VersionAdded: '2.7'
   VersionChanged: '2.10'
-Rails/WhereMissing:
-  Description: 'Use `where.missing(...)` to find missing relationship records.'
-  StyleGuide: 'https://rails.rubystyle.guide/#finding-missing-relationship-records'
-  Enabled: true
-  VersionAdded: '2.16'
 Rails/WhereNot:
   Description: 'Use `where.not(...)` instead of manually constructing negated SQL in `where`.'
   StyleGuide: 'https://rails.rubystyle.guide/#hash-conditions'
@@ -1269,10 +1141,6 @@ Style/DocumentDynamicEvalDefinition:
   Enabled: true
   VersionAdded: '1.1'
   VersionChanged: '1.3'
-Style/EmptyHeredoc:
-  Description: 'Checks for using empty heredoc to reduce redundancy.'
-  Enabled: true
-  VersionAdded: '1.32'
 Style/EndlessMethod:
   Description: 'Avoid the use of multi-lined endless method definitions.'
   StyleGuide: '#endless-methods'
@@ -1283,20 +1151,6 @@ Style/EndlessMethod:
     - allow_single_line
     - allow_always
     - disallow
-Style/EnvHome:
-  Description: "Checks for consistent usage of `ENV['HOME']`."
-  Enabled: true
-  Safe: false
-  VersionAdded: '1.29'
-Style/FetchEnvVar:
-  Description: >-
-                 Suggests `ENV.fetch` for the replacement of `ENV[]`.
-  Reference:
-    - https://rubystyle.guide/#hash-fetch-defaults
-  Enabled: true
-  VersionAdded: '1.28'
-  # Environment variables to be excluded from the inspection.
-  AllowedVars: []
 Style/FileRead:
   Description: 'Favor `File.(bin)read` convenience methods.'
   StyleGuide: '#file-read'
@@ -1319,9 +1173,7 @@ Style/HashExcept:
                  Checks for usages of `Hash#reject`, `Hash#select`, and `Hash#filter` methods
                  that can be replaced with `Hash#except` method.
   Enabled: true
-  Safe: false
   VersionAdded: '1.7'
-  VersionChanged: '1.39'
 Style/IfWithBooleanLiteralBranches:
   Description: 'Checks for redundant `if` with boolean literal branches.'
   Enabled: true
@@ -1334,29 +1186,6 @@ Style/InPatternThen:
   StyleGuide: '#no-in-pattern-semicolons'
   Enabled: true
   VersionAdded: '1.16'
-Style/MagicCommentFormat:
-  Description: 'Use a consistent style for magic comments.'
-  Enabled: true
-  VersionAdded: '1.35'
-  EnforcedStyle: snake_case
-  SupportedStyles:
-    # `snake` will enforce the magic comment is written
-    # in snake case (words separated by underscores).
-    # Eg: froze_string_literal: true
-    - snake_case
-    # `kebab` will enforce the magic comment is written
-    # in kebab case (words separated by hyphens).
-    # Eg: froze-string-literal: true
-    - kebab_case
-  DirectiveCapitalization: lowercase
-  ValueCapitalization: ~
-  SupportedCapitalizations:
-    - lowercase
-    - uppercase
-Style/MapCompactWithConditionalBlock:
-  Description: 'Prefer `select` or `reject` over `map { ... }.compact`.'
-  Enabled: true
-  VersionAdded: '1.30'
 Style/MapToHash:
   Description: 'Prefer `to_h` with a block over `map.to_h`.'
   Enabled: true
@@ -1395,18 +1224,6 @@ Style/NumberedParametersLimit:
   Enabled: true
   VersionAdded: '1.22'
   Max: 1
-Style/ObjectThen:
-  Description: 'Enforces the use of consistent method names `Object#yield_self` or `Object#then`.'
-  StyleGuide: '#object-yield-self-vs-object-then'
-  Enabled: true
-  VersionAdded: '1.28'
-  # Use `Object#yield_self` or `Object#then`?
-  # Prefer `Object#yield_self` to `Object#then` (yield_self)
-  # Prefer `Object#then` to `Object#yield_self` (then)
-  EnforcedStyle: 'then'
-  SupportedStyles:
-    - then
-    - yield_self
 Style/OpenStructUse:
   Description: >-
                  Avoid using OpenStruct. As of Ruby 3.0, use is officially discouraged due to performance,
@@ -1452,10 +1269,7 @@ Style/RedundantFileExtensionInRequire:
 Style/RedundantInitialize:
   Description: 'Checks for redundant `initialize` methods.'
   Enabled: true
-  Safe: false
-  AllowComments: true
   VersionAdded: '1.27'
-  VersionChanged: '1.28'
 Style/RedundantSelfAssignmentBranch:
   Description: 'Checks for places where conditional branch makes redundant self-assignment.'
   Enabled: true
@@ -1496,113 +1310,15 @@ RSpec/NestedGroups:
   Max: 5
 RSpec/ExampleLength:
   Max: 15
-  CountAsOne: ["array", "hash", "heredoc"]
 RSpec/ExpectChange:
   Enabled: true
   EnforcedStyle: block
-RSpec/MultipleMemoizedHelpers:
-  Description: Checks if example groups contain too many `let` and `subject` calls.
-  Enabled: pending
-  AllowSubject: true
-  Max: 5
-  VersionAdded: '1.43'
-  StyleGuide: https://rspec.rubystyle.guide/#let-blocks
-  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/MultipleMemoizedHelpers
-RSpec/BeEq:
-  Description: Check for expectations where `be(...)` can replace `eq(...)`.
-  Enabled: true
-  VersionAdded: 2.9.0
-  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/BeEq
-RSpec/BeNil:
-  Description: Ensures a consistent style is used when matching `nil`.
-  Enabled: true
-  EnforcedStyle: be_nil
-  SupportedStyles:
-    - be
-    - be_nil
-  VersionAdded: 2.9.0
-  VersionChanged: 2.10.0
-  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/BeNil
-RSpec/ChangeByZero:
-  Description: Prefer negated matchers over `to change.by(0)`.
-  Enabled: true
-  VersionAdded: '2.11'
-  VersionChanged: '2.14'
-  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/ChangeByZero
-RSpec/ClassCheck:
-  Description: Enforces consistent use of `be_a` or `be_kind_of`.
-  StyleGuide: "#is-a-vs-kind-of"
-  Enabled: true
-  VersionAdded: '2.13'
-  EnforcedStyle: be_a
-  SupportedStyles:
-    - be_a
-    - be_kind_of
-  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/ClassCheck
-RSpec/ExcessiveDocstringSpacing:
-  Description: Checks for excessive whitespace in example descriptions.
-  Enabled: true
-  VersionAdded: '2.5'
-  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/ExcessiveDocstringSpacing
-RSpec/IdenticalEqualityAssertion:
-  Description: Checks for equality assertions with identical expressions on both sides.
-  Enabled: true
-  VersionAdded: '2.4'
-  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/IdenticalEqualityAssertion
 RSpec/LetSetup:
   Description: Checks unreferenced `let!` calls being used for test setup.
   Enabled: true
-  VersionAdded: '1.7'
-  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/LetSetup
-RSpec/NoExpectationExample:
-  Description: Checks if an example contains any expectation.
-  Enabled: true
-  Safe: false
-  VersionAdded: '2.13'
-  VersionChanged: '2.14'
-  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/NoExpectationExample
-  AllowedPatterns:
-    - "^expect_"
-    - "^assert_"
-RSpec/SubjectDeclaration:
-  Description: Ensure that subject is defined using subject helper.
-  Enabled: true
-  VersionAdded: '2.5'
-  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/SubjectDeclaration
-RSpec/VerifiedDoubleReference:
-  Description: Checks for consistent verified double reference style.
-  Enabled: true
-  SafeAutoCorrect: false
-  EnforcedStyle: constant
-  SupportedStyles:
-    - constant
-    - string
-  VersionAdded: 2.10.0
-  VersionChanged: '2.12'
-  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/VerifiedDoubleReference
 RSpec/VerifiedDoubles:
   Description: Prefer using verifying doubles over normal doubles.
   Enabled: true
   IgnoreNameless: true
   IgnoreSymbolicNames: false
-  VersionAdded: 1.2.1
-  VersionChanged: '1.5'
   StyleGuide: https://rspec.rubystyle.guide/#doubles
-  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/VerifiedDoubles
-RSpec/Rails/AvoidSetupHook:
-  Description: Checks that tests use RSpec `before` hook over Rails `setup` method.
-  Enabled: true
-  VersionAdded: '2.4'
-  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/Rails/AvoidSetupHook
-RSpec/FactoryBot/SyntaxMethods:
-  Description: Use shorthands from `FactoryBot::Syntax::Methods` in your specs.
-  Enabled: true
-  SafeAutoCorrect: false
-  VersionAdded: '2.7'
-  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/FactoryBot/SyntaxMethods
-RSpec/Rails/HaveHttpStatus:
-  Description: Checks that tests use `have_http_status` instead of equality matchers.
-  Enabled: true
-  SafeAutoCorrect: false
-  VersionAdded: '2.12'
-  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/Rails/HaveHttpStatus
