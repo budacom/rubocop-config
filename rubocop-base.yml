@@ -1113,6 +1113,11 @@ Performance/Sum:
   VersionAdded: '1.8'
   VersionChanged: '1.13'
   OnlySumOrWithInitialValue: false
+Style/NumericLiterals:
+  Description: 'Checks for big numeric literals without _ between groups of digits in them.'
+  Enabled: true
+  VersionAdded: '0.9'
+  VersionChanged: '0.48'
 Style/OptionalBooleanParameter:
   Description: 'Use keyword arguments when defining method with boolean argument.'
   Enabled: false
