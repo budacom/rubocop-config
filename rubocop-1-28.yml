@@ -1,5 +1,5 @@
 inherit_from:
-  - rubocop-base.yml
+  - https://raw.githubusercontent.com/budacom/rubocop-config/main/rubocop-base.yml
 
 Rails/ActionControllerTestCase:
   SafeAutocorrect: false
