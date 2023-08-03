@@ -15,3 +15,12 @@ AllCops:
 ```
 
 If your project needs the older configuration, you must change the last part `rubocop.yml` for `rubocop-1-28.yml`.
+
+Also, add the following to your `.gitignore`:
+
+```yml
+# Rubocop
+.rubocop-*
+```
+
+This will prevent you from committing the rubocop cache files.
