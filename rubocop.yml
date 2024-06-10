@@ -275,21 +275,20 @@ RSpec/VerifiedDoubles:
   VersionAdded: 1.2.1
   VersionChanged: '1.5'
   Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/VerifiedDoubles
-RSpec/Rails/AvoidSetupHook:
+RSpecRails/AvoidSetupHook:
   Description: Checks that tests use RSpec `before` hook over Rails `setup` method.
   Enabled: true
   VersionAdded: '2.4'
   Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/Rails/AvoidSetupHook
-RSpec/FactoryBot/SyntaxMethods:
+FactoryBot/SyntaxMethods:
   Description: Use shorthands from `FactoryBot::Syntax::Methods` in your specs.
   Enabled: true
   SafeAutoCorrect: false
   VersionAdded: '2.7'
   Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/FactoryBot/SyntaxMethods
-RSpec/Rails/HaveHttpStatus:
+RSpecRails/HaveHttpStatus:
   Description: Checks that tests use `have_http_status` instead of equality matchers.
   Enabled: true
   SafeAutoCorrect: false
   VersionAdded: '2.12'
   Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/Rails/HaveHttpStatus
-  
