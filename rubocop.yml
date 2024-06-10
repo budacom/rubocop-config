@@ -38,7 +38,6 @@ Layout/LineContinuationSpacing:
   Description: 'Checks the spacing in front of backslash in line continuations.'
   Enabled: true
   AutoCorrect: true
-  SafeAutoCorrect: true
   VersionAdded: '1.31'
   EnforcedStyle: space
   SupportedStyles:
@@ -65,7 +64,6 @@ Security/CompoundHash:
 Rails/ActionControllerFlashBeforeRender:
   Description: 'Use `flash.now` instead of `flash` before `render`.'
   StyleGuide: 'https://rails.rubystyle.guide/#flash-before-render'
-  Reference: 'https://api.rubyonrails.org/classes/ActionController/FlashBeforeRender.html'
   Enabled: true
   SafeAutoCorrect: false
   VersionAdded: '2.16'
