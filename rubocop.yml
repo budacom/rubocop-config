@@ -262,7 +262,7 @@ RSpec/VerifiedDoubleReference:
   Description: Checks for consistent verified double reference style.
   Enabled: true
   SafeAutoCorrect: false
-  EnforcedStyle: constant
+  EnforcedReferenceStyle: constant
   SupportedStyles:
     - constant
     - string

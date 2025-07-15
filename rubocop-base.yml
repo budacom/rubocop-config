@@ -1,7 +1,9 @@
-require:
-  - rubocop-rspec
-  - rubocop-rails
+plugins:
   - rubocop-performance
+  - rubocop-factory_bot
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-rspec_rails
 AllCops:
   Exclude:
   - "vendor/**/*"
