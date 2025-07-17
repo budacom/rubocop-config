@@ -11,10 +11,6 @@ AllCops:
   - "bin/**/*"
   TargetRubyVersion: 2.5
   NewCops: disable
-Rails:
-  Enabled: true
-Performance:
-  Enabled: true
 Bundler/GemVersion:
   Description: 'Requires or forbids specifying gem versions.'
   Enabled: true
