@@ -244,6 +244,9 @@ Style/HashTransformKeys:
 Style/HashTransformValues:
   Description: Prefer `transform_values` over `each_with_object` and `map`.
   Enabled: true
+Style/HashSyntax:
+  Description: 'Prefer the Ruby 1.9 hash literal syntax.'
+  Enabled: true
 Metrics/AbcSize:
   Description: A calculated magnitude based on number of assignments, branches, and
     conditions.
@@ -469,6 +472,9 @@ Style/SymbolArray:
   Description: Use %i or %I for arrays of symbols.
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#percent-i
   Enabled: false
+Style/SymbolProc:
+  Description: 'Use the `&:method` shorthand for simple blocks.'
+  Enabled: true
 Layout/ExtraSpacing:
   Description: Do not use unnecessary spacing.
   Enabled: false
@@ -612,6 +618,12 @@ Layout/EndOfLine:
   Description: Use Unix-style line endings.
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#crlf
   Enabled: true
+Layout/EmptyLineAfterGuardClause:
+  Description: 'Add a blank line after guard clauses for readability.'
+  Enabled: true
+Layout/EmptyLineBetweenDefs:
+  Description: 'Use blank lines to separate consecutive method definitions.'
+  Enabled: true
 Style/EvenOdd:
   Description: Favor the use of Fixnum#even? && Fixnum#odd?
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#predicate-methods
@@ -642,7 +654,8 @@ Style/MultilineBlockChain:
   Enabled: false
 Layout/MultilineBlockLayout:
   Description: Ensures newlines after multiline block do statements.
-  Enabled: false
+  Enabled: true
+  EnforcedStyle: symmetrical
 Style/NegatedIf:
   Description: Favor unless over if for negative conditions (or control flow or).
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#unless-for-negatives
@@ -748,7 +761,7 @@ Lint/RequireParentheses:
   Enabled: false
 Lint/UnderscorePrefixedVariableName:
   Description: Do not use prefix `_` for a variable that is used.
-  Enabled: false
+  Enabled: true
 Lint/Void:
   Description: Possible use of operator/literal/variable in void context.
   Enabled: false
@@ -1318,9 +1331,17 @@ RSpec/ExpectChange:
 RSpec/LetSetup:
   Description: Checks unreferenced `let!` calls being used for test setup.
   Enabled: true
+RSpec/EmptyLineAfterHook:
+  Description: 'Require a blank line after before/after/around hooks.'
+  Enabled: true
+RSpec/EmptyLineAfterExample:
+  Description: 'Require a blank line after each example block.'
+  Enabled: true
 RSpec/VerifiedDoubles:
   Description: Prefer using verifying doubles over normal doubles.
   Enabled: true
   IgnoreNameless: true
   IgnoreSymbolicNames: false
   StyleGuide: https://rspec.rubystyle.guide/#doubles
+RSpec/RepeatedExampleGroupBody:
+  Enabled: true
