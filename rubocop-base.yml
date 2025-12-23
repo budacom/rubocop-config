@@ -63,6 +63,12 @@ Layout/ParameterAlignment:
   SupportedStyles:
   - with_first_parameter
   - with_fixed_indentation
+Layout/MultilineMethodArgumentLineBreaks:
+  Description: Ensures that each argument in a multi-line method call starts on a separate line.
+  Enabled: pending
+Layout/FirstMethodArgumentLineBreak:
+  Description: Checks for a line break before the first argument in a multi-line method call.
+  Enabled: true
 Metrics/BlockLength:
   Enabled: false
 Style/ClassAndModuleChildren:
@@ -107,12 +113,12 @@ Style/GlobalVars:
 Style/GuardClause:
   Description: Check for conditionals that can be replaced with guard clauses
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#no-nested-conditionals
-  Enabled: false
+  Enabled: true
   MinBodyLength: 1
 Style/IfUnlessModifier:
   Description: Favor modifier if/unless usage when you have a single-line body.
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#if-as-a-modifier
-  Enabled: false
+  Enabled: true
 Style/LambdaCall:
   Description: Use lambda.call(...) instead of lambda.(...).
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#proc-call
@@ -124,7 +130,7 @@ Style/LambdaCall:
 Style/Next:
   Description: Use `next` to skip iteration instead of a condition at the end.
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#no-nested-conditionals
-  Enabled: false
+  Enabled: true
   EnforcedStyle: skip_modifier_ifs
   MinBodyLength: 3
   SupportedStyles:
@@ -477,7 +483,14 @@ Style/SymbolProc:
   Enabled: true
 Layout/ExtraSpacing:
   Description: Do not use unnecessary spacing.
-  Enabled: false
+  Enabled: true
+Style/MethodCallWithArgsParentheses:
+  Enabled: true
+  EnforcedStyle: require_parentheses
+  IgnoreMacros: true
+Style/ReturnNil:
+  Enabled: true
+  EnforcedStyle: return
 Naming/AccessorMethodName:
   Description: Check the naming of accessor methods for get_/set_.
   Enabled: false
