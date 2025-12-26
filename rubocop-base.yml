@@ -485,9 +485,10 @@ Layout/ExtraSpacing:
   Description: Do not use unnecessary spacing.
   Enabled: true
 Style/MethodCallWithArgsParentheses:
+  Enabled: false
+Style/MethodCallWithoutArgsParentheses:
   Enabled: true
-  EnforcedStyle: require_parentheses
-  IgnoreMacros: true
+  AllowedMethods: []
 Style/ReturnNil:
   Enabled: true
   EnforcedStyle: return
