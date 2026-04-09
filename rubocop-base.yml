@@ -114,6 +114,7 @@ Style/GuardClause:
   Description: Check for conditionals that can be replaced with guard clauses
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#no-nested-conditionals
   Enabled: true
+  Severity: warning
   MinBodyLength: 1
 Style/IfUnlessModifier:
   Description: Favor modifier if/unless usage when you have a single-line body.
