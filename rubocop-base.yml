@@ -458,6 +458,8 @@ Layout/LineLength:
   URISchemes:
   - http
   - https
+  AllowedPatterns:
+    - '^\s*#'
 Layout/EndAlignment:
   Description: Align ends correctly.
   Enabled: true
